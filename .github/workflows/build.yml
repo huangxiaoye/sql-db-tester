@@ -3,10 +3,10 @@ name: build
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build-rust:
@@ -14,7 +14,7 @@ jobs:
       matrix:
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
-    service:
+    services:
       postgres:
         image: postgres:14.5
         env:
