@@ -117,7 +117,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_db_should_create_and_drop() {
-        let tdb = TestDb::new("localhost", 5432, "postgres", "", "./migrations");
+        let tdb = TestDb::new("localhost", 5432, "postgres", "postgres", "./migrations");
         let pool = tdb.get_pool().await;
         // insert todos
         sqlx::query("INSERT INTO todos(title) VALUES('test')")
